@@ -9,8 +9,8 @@
   },
   "version": "1.0.0",
   "updater": {
-    "type": "github",
-    "id": "thatgurkangurk/lmgtfy"
+    "type": "store",
+    "id": "me.gurkz.LMGTFY"
   },
   "license": "MIT",
   "type": "replugged-plugin",
