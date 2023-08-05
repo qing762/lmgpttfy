@@ -1,0 +1,18 @@
+{
+  "id": "me.gurkz.LMGTFY",
+  "name": "LMGTFY",
+  "description": "A LMGTFY plugin for replugged.",
+  "author": {
+    "name": "Gurkan",
+    "discordID": "592449995035246605",
+    "github": "thatgurkangurk"
+  },
+  "version": "1.0.0",
+  "updater": {
+    "type": "github",
+    "id": "thatgurkangurk/lmgtfy"
+  },
+  "license": "MIT",
+  "type": "replugged-plugin",
+  "renderer": "src/index.ts"
+}
