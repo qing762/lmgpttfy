@@ -14,5 +14,7 @@
   },
   "license": "MIT",
   "type": "replugged-plugin",
-  "renderer": "src/index.ts"
+  "renderer": "src/index.ts",
+  "source": "https://github.com/thatgurkangurk/lmgtfy",
+  "image": "https://cdn.discordapp.com/attachments/1137434327232299098/1137435042235293756/DiscordCanary_yMOthey7bT.gif"
 }
