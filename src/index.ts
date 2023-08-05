@@ -1,24 +1,10 @@
-import { Injector, Logger, webpack } from "replugged";
+import { Injector, Logger } from "replugged";
 
 const inject = new Injector();
 const logger = Logger.plugin("LMGTFY");
 
-export async function start(): Promise<void> {
-  const typingMod = await webpack.waitForModule<{
-    startTyping: (channelId: string) => void;
-  }>(webpack.filters.byProps("startTyping"));
-  const getChannelMod = await webpack.waitForModule<{
-    getChannel: (id: string) => {
-      name: string;
-    };
-  }>(webpack.filters.byProps("getChannel"));
-
-  if (typingMod && getChannelMod) {
-    inject.instead(typingMod, "startTyping", ([channel]) => {
-      const channelObj = getChannelMod.getChannel(channel);
-      logger.log(`Typing prevented! Channel: #${channelObj?.name ?? "unknown"} (${channel}).`);
-    });
-  }
+export function start(): void {
+  logger.log("hewwo");
 }
 
 export function stop(): void {
