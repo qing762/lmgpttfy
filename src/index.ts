@@ -9,12 +9,12 @@ export function start(): void {
 }
 
 function injectSendMessage(): void {
-  injector.instead(common.messages, "sendMessage", async (args, fn) => {
-    if (!args[1].content.startsWith("!lmgtfy ")) return fn(...args);
+  injector.before(common.messages, "sendMessage", (args) => {
+    if (!args[1].content.startsWith("!lmgtfy ")) return args;
     const searchString = args[1].content.replace("!lmgtfy ", "");
     const link = `https://letmegooglethat.com/?q=${searchString.replace(/ /g, "+")}`;
     args[1].content = link;
-    return fn(...args);
+    return args;
   });
 }
 
