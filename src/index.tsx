@@ -6,7 +6,7 @@ type Settings = {
 };
 
 const defaultSettings = {
-  service: "https://letmegooglethat.com",
+  service: "https://letmegooglethat.com/?q=%s",
 } satisfies Partial<Settings>;
 
 const cfg = await settings.init<Settings, keyof typeof defaultSettings>("LMGTFY", defaultSettings);
@@ -67,7 +67,6 @@ export function Settings(): React.ReactElement {
       ]}
       onChange={(option) => {
         onChange(option.value);
-        cfg.set("service", option.value);
         logger.log(`changed lmgtfy service to ${option.value}`);
       }}>
       Which service do you want to use?
