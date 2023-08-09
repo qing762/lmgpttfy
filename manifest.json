@@ -7,14 +7,14 @@
     "discordID": "592449995035246605",
     "github": "thatgurkangurk"
   },
-  "version": "1.1.2",
+  "version": "2.0.0",
   "updater": {
     "type": "store",
     "id": "me.gurkz.LMGTFY"
   },
   "license": "MIT",
   "type": "replugged-plugin",
-  "renderer": "src/index.ts",
+  "renderer": "src/index.tsx",
   "source": "https://github.com/thatgurkangurk/lmgtfy",
   "image": "https://cdn.discordapp.com/attachments/1137434327232299098/1137435042235293756/DiscordCanary_yMOthey7bT.gif"
 }
