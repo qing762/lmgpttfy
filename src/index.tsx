@@ -2,7 +2,7 @@ import { Injector, Logger, common, components, settings, util } from "replugged"
 const { RadioItem } = components;
 
 type Settings = {
-  service: string;
+  service?: string;
 };
 
 const defaultSettings = {
@@ -23,7 +23,7 @@ function injectSendMessage(): void {
   injector.before(common.messages, "sendMessage", (args) => {
     if (!args[1].content.startsWith("!lmgtfy ")) return args;
     const searchString = args[1].content.replace("!lmgtfy ", "");
-    const service = cfg.get("service", "https://letmegooglethat.com/?q=%s");
+    const service = cfg.get("service");
     const link = service.replace("%s", encodeURIComponent(searchString));
     args[1].content = link;
     return args;
@@ -31,7 +31,7 @@ function injectSendMessage(): void {
 }
 
 export function Settings(): React.ReactElement {
-  const { onChange, value } = util.useSetting(cfg, "service", "https://letmegooglethat.com/q=%s");
+  const { onChange, value } = util.useSetting(cfg, "service");
   return (
     <RadioItem
       value={value}
@@ -57,8 +57,12 @@ export function Settings(): React.ReactElement {
           value: "https://lmgtfy.app/?q=%s&t=i",
         },
         {
-          name: "gogolethatforyou.com",
-          value: "https://googlethatforyou.com?q=%s",
+          name: "googlethatforyou.com",
+          value: "https://googlethatforyou.com/?q=%s",
+        },
+        {
+          name: "lmgt.org",
+          value: "https://lmgt.org/?q=%s",
         },
       ]}
       onChange={(option) => {
