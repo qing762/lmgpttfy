@@ -31,7 +31,7 @@ function injectSendMessage(): void {
 }
 
 export function Settings(): React.ReactElement {
-  const { onChange, value } = util.useSetting(cfg, "service", "https://letmegooglethat.com");
+  const { onChange, value } = util.useSetting(cfg, "service", "https://letmegooglethat.com/q=%s");
   return (
     <RadioItem
       value={value}
