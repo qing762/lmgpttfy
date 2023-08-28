@@ -8,7 +8,10 @@ const defaultSettings = {
   service: "https://letmegpt.com/?q=%s",
 } satisfies Partial<Settings>;
 
-const cfg = await settings.init<Settings, keyof typeof defaultSettings>("LMGPTTFY", defaultSettings);
+const cfg = await settings.init<Settings, keyof typeof defaultSettings>(
+  "LMGPTTFY",
+  defaultSettings,
+);
 
 const injector = new Injector();
 const logger = Logger.plugin("LMGPTTFY");
