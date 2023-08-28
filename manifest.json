@@ -1,20 +1,20 @@
 {
-  "id": "me.gurkz.LMGTFY",
-  "name": "LMGTFY",
-  "description": "A LMGTFY plugin for replugged.",
+  "id": "me.chy.LMGPTTFY",
+  "name": "LMGPTTFY",
+  "description": "A LMGPTTFY plugin for replugged. (Gurkan's LMGTFY fork)",
   "author": {
-    "name": "Gurkan",
-    "discordID": "592449995035246605",
-    "github": "thatgurkangurk"
+    "name": "qing762",
+    "discordID": "635765555277725696",
+    "github": "qing762"
   },
-  "version": "2.0.2",
+  "version": "1.0.0",
   "updater": {
-    "type": "store",
-    "id": "me.gurkz.LMGTFY"
+    "type": "github",
+    "id": "qing762/LMGPTTFY"
   },
   "license": "MIT",
   "type": "replugged-plugin",
   "renderer": "src/index.tsx",
-  "source": "https://github.com/thatgurkangurk/lmgtfy",
-  "image": "https://cdn.discordapp.com/attachments/1137434327232299098/1137435042235293756/DiscordCanary_yMOthey7bT.gif"
+  "source": "https://github.com/qing762/lmgpttfy",
+  "image": "https://cdn.discordapp.com/attachments/995904492988006531/1145528251280801822/2023-08-28_09-15-59.gif"
 }

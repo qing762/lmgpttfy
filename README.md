@@ -1,13 +1,13 @@
-# LMGTFY
+# LMGPTTFY
 
 it's best to just show you how it works
 
-![How to use it](https://cdn.discordapp.com/attachments/1137434327232299098/1137435042235293756/DiscordCanary_yMOthey7bT.gif)
+![How to use it](https://cdn.discordapp.com/attachments/995904492988006531/1145528251280801822/2023-08-28_09-15-59.gif)
 
 type the follwing in ANY channel
 
 ```
-!lmgtfy <search query>
+!lmgpttfy <search query>
 ```
 
 enjoy!

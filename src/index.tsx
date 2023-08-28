@@ -1,77 +1,32 @@
-import { Injector, Logger, common, components, settings, util } from "replugged";
-const { RadioItem } = components;
+import { Injector, Logger, common, settings } from "replugged";
 
 type Settings = {
   service?: string;
 };
 
 const defaultSettings = {
-  service: "https://letmegooglethat.com/?q=%s",
+  service: "https://letmegpt.com/?q=%s",
 } satisfies Partial<Settings>;
 
-const cfg = await settings.init<Settings, keyof typeof defaultSettings>("LMGTFY", defaultSettings);
+const cfg = await settings.init<Settings, keyof typeof defaultSettings>("LMGPTTFY", defaultSettings);
 
 const injector = new Injector();
-const logger = Logger.plugin("LMGTFY");
+const logger = Logger.plugin("LMGPTTFY");
 
 export function start(): void {
-  logger.log("hewwo from lmgtfy - developed with ♡ in sweden");
+  logger.log("LMGPTTFY has started!");
   injectSendMessage();
 }
 
 function injectSendMessage(): void {
   injector.before(common.messages, "sendMessage", (args) => {
-    if (!args[1].content.startsWith("!lmgtfy ")) return args;
-    const searchString = args[1].content.replace("!lmgtfy ", "");
+    if (!args[1].content.startsWith("!lmgpttfy ")) return args;
+    const searchString = args[1].content.replace("!lmgpttfy ", "");
     const service = cfg.get("service");
     const link = service.replace("%s", encodeURIComponent(searchString));
     args[1].content = link;
     return args;
   });
-}
-
-export function Settings(): React.ReactElement {
-  const { onChange, value } = util.useSetting(cfg, "service");
-  return (
-    <RadioItem
-      value={value}
-      options={[
-        {
-          name: "letmegooglethat.com",
-          value: "https://letmegooglethat.com/?q=%s",
-        },
-        {
-          name: "lmgtfy.app",
-          value: "https://lmgtfy.app/?q=%s",
-        },
-        {
-          name: "lmgtfy.app (internet explainer)",
-          value: "https://lmgtfy.app/?q=%s&iie=1",
-        },
-        {
-          name: "lmgtfy.app (images & internet explainer)",
-          value: "https://lmgtfy.app/?q=%s&t=i&iie=1",
-        },
-        {
-          name: "lmgtfy.app (images)",
-          value: "https://lmgtfy.app/?q=%s&t=i",
-        },
-        {
-          name: "googlethatforyou.com",
-          value: "https://googlethatforyou.com/?q=%s",
-        },
-        {
-          name: "lmgt.org",
-          value: "https://lmgt.org/?q=%s",
-        },
-      ]}
-      onChange={(option) => {
-        onChange(option.value);
-        logger.log(`changed lmgtfy service to ${option.value}`);
-      }}>
-      Which service do you want to use?
-    </RadioItem>
-  );
 }
 
 export function stop(): void {
