@@ -10,7 +10,7 @@
   "version": "1.0.0",
   "updater": {
     "type": "github",
-    "id": "qing762/LMGPTTFY"
+    "id": "qing762/lmgpttfy"
   },
   "license": "MIT",
   "type": "replugged-plugin",
